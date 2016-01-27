@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <script>
+      function debug(msg) {
+        var log = $('#debuglog');            // Localiza o elemento para exibir a msg.
+        if (log.length == 0) {               // Se ele ainda não existe, cria-o...
+          log = $('<div id="debuglog"><h1>Debug Log</h1></div>');
+          log.appendTo(document.body);       // e o insere no final do corpo.
+        }
+        log.append($('<pre/>').text(msg));   // Coloca a msg <pre> e anexa no log.
+      }
+
+      debug('texto')
+    </script>
+  </body>
+</html>

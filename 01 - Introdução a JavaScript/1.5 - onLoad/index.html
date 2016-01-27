@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <img src="img/ex01.jpg" alt="Ex 01">
+    <img src="img/ex03.jpg" alt="Ex 01">
+    <img src="img/ex02.jpg" alt="Ex 01">
+    <script>
+      // O evento 'load' ocorre quando um documento está totalmente carregado. Normalmente
+      // precisamos esperar por esse evento antes de começarmos a executar o código javascript.
+      window.onload =  function() {      //  Executa essa função quando o documento for carregado
+        // Localiza todas as marcas <img> no documento
+        var images = document.getElementsByTagName('img');
+
+        // Faz um laço por elas, adicionando uma rotina de tratamento para eventos 'click' em
+        // cada uma, para que clicar na imagem a oculte.
+        for(var i = 0; i < images.length; i++) {
+          var image = images[i];
+          if (image.addEventListener)    // Outro modo de registrar uma rotina de tratamento
+            image.addEventListener('click', hide, false);
+                                        // Para compactibilidade com Browsers antigos
+          else
+            image.attachEvent('onclick', hide);
+        }
+        // Está é a função de rotina para tratamento de evento registrada anteriormente
+        function hide(event) { event.target.style.visibility = 'hidden'; }
+      };
+    </script>
+  </body>
+</html>
