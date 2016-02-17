@@ -14,7 +14,8 @@ console.log(s.replace("h", "H"));         // Substitui todas instancias
 console.log(s.replace("w", "W"));         // Substitui todas instancias
 console.log(s.toUpperCase());             // Tudo em caixa alta
 
-window.onload = function() {
+window.onload = function()
+{
     document.getElementById('contact-number').innerHTML = s;
 }
 
