@@ -1,6 +1,6 @@
 // IF
-
-if (username == null)                   // Se o usuario for Null ou Undefined
+var username = '';
+if (username === null)                   // Se o usuario for Null ou Undefined
 username = 'John Doe';                  // Define username
 
 //----------------------//
@@ -8,14 +8,14 @@ username = 'John Doe';                  // Define username
 if (!username) username = 'John Doe';
 
 //-----------------------//
-
+var address = '';
 if (!address) {
   address = '';
   message = 'Please specify a mailing address';
 }
 
 //---------------------------//
-
+var n = 1;
 if (n == 1)
   console.log('You have 1 new message');
   else
