@@ -28,3 +28,33 @@ for(i = 0; i < data.length; i++) {
     if(!data[i]) continue;                      // Não prossegue com dados indefinidos
     total += data[i];
 }
+
+// RETURN
+
+function square(x) { return x*x; }
+square(2);
+
+//----------------------//
+
+function display_objeto(o) {
+    if(!o) return;                                    // Retorna imediatamente se o argumento for null/undefined
+}                                                     // O restante da função fica aqui
+
+// THROW
+
+function factorial(x) {
+    if (x < 0) throw new Error('x must not be negative');   // Se o argumento de entrada é invalido, lança um erro
+    for(var f = 1; x > 1; f *= x, x--)                      // Caso contrario calcula o valor e segue
+    return f;
+}
+
+// TRY/CATCH/FINALLY
+
+try {
+    var n = Number(prompt('Please enter a positive integer', ''));  // Pede um numero positivo
+    var f = factorial(n);                                           // Calcula o numero se for valido
+    alert(n + '! = ' + f);                                          // Mostra o resultado
+}
+catch (ex) {                                                        // Se a entrada não for valida, terminamos aqui
+    alert(ex)                                                       // Informa o erro.
+}
