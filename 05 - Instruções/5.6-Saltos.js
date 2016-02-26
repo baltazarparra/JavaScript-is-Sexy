@@ -21,3 +21,10 @@ compute_sum: if (matrix) {                        // Começa com uma instrução
 // As intruções pulam pra ca, se chegamos aqui com sucess == false,
 // entao algo deu errado com a matriz que recebemos,
 // caso contrario, sum contem a soma das celular.
+
+// CONTINUE
+
+for(i = 0; i < data.length; i++) {
+    if(!data[i]) continue;                      // Não prossegue com dados indefinidos
+    total += data[i];
+}
