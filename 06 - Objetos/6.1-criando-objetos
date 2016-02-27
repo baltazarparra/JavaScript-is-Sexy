@@ -1,0 +1,44 @@
+// OBJETOS LITERAIS
+
+var empty = {};                               // objeto sem propriedades
+var point = {x : 0, y : 0};                   // duas propriedades
+var point2 = {x : point.x, y : point.y + 1 };     // valores complexos
+var book = {
+	'main-title' : 'JavaScript',
+	'subtitle' : 'The definitive guide',
+	'for' : 'all audiences',
+	author : {
+		firstname : 'David',
+		surname : 'Franagan'
+	}
+};
+
+// NEW
+
+var o = new Object();
+var a = new Array();
+var d = new Date();
+var r = new Object();
+
+// CREATE
+
+var 01 = Object.create({x : 1, Y : 2});
+var 02 = Object.create(null);
+var 03 = Object.create(Object.prototype);
+
+//------------------//
+
+// inherit() retorna um objeto recém-criado que herda propriedades do objeto prototipo p.
+// Ele usa a função Object.create() se estiver definida, caso contrario, usa uma tecnica antiga.
+
+function inherit(p) {
+	if (p == null) throw TypeError();                 // p deve ser um objeto não nulo
+	if (Object.create)                                // Se Object.create está definida, use-a
+		return Object.create(p);
+	var t = typeof p;                                 // verificação de tipo
+
+	if (t !== 'object' && t !== 'function') throw TypeError();
+	function f() {};                                  // Define uma construtora ficticia
+	f.prototype = p;                                  // Configura seu prototype
+	return new f();                                   // Usa f() para criar um herdeiro
+}
