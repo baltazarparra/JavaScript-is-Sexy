@@ -16,3 +16,16 @@ console.log(keys);
 
 console.log('Valores de o ' + values);
 console.log(values);
+
+//---------------//
+
+for(var j = 0, len = keys.length; j < len; j++) {
+	var chave = keys[j];
+	values[j] = o[chave];
+}
+
+console.log('Propriedades de o ' + keys);
+console.log(keys);
+
+console.log('Valores de o ' + values);
+console.log(values);
