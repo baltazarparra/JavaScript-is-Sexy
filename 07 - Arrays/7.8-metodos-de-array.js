@@ -58,3 +58,24 @@ i.sort(function(s,t) {
 console.log(i);
 
 // CONCAT
+
+var conca = [5,6,7];
+var cc = conca.concat(8,9);
+console.log(cc);
+var dd = conca.concat([10,11]);
+console.log(dd);
+var ee = conca.concat([12,13],[14,15]);
+console.log(ee);
+var ff = conca.concat(12,13,[14,[15]]);
+console.log(ff);
+
+// SLICE
+
+var sli = [1,2,3,4,5];
+var sl = sli.slice(0,3);
+console.log(sl);
+var sll = sli.slice(1,-1);
+console.log(sll);
+
+// SPLICE
+
