@@ -79,3 +79,36 @@ console.log(sll);
 
 // SPLICE
 
+var spli = [1,2,3,0,5,6,7,8,9];
+spli.splice(4);
+console.log(spli);
+spli.splice(1,2);
+console.log(spli);
+spli.splice(1,1);
+console.log(spli);
+
+var splic = [1,2,3,0,5,6,7,8,9];
+splic.splice(1,0,'a','b');
+console.log(splic);
+splic.splice(2,2,[1,2],3);
+console.log(splic);
+
+// PUSH AND POP
+
+var stack = [];
+stack.push(6,6);
+console.log(stack);
+stack.pop();
+console.log(stack);
+stack.push(9);
+console.log(stack);
+stack.pop();
+console.log(stack);
+stack.push([4,5]);
+console.log(stack);
+stack.pop();
+console.log(stack);
+stack.pop();
+console.log(stack);
+
+// UNSHIFT E SHIFT
