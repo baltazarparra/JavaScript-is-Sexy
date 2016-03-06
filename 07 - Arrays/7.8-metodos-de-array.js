@@ -112,3 +112,28 @@ stack.pop();
 console.log(stack);
 
 // UNSHIFT E SHIFT
+
+var shif = [];
+shif.unshift(666);
+console.log(shif);
+shif.unshift(171);
+console.log(shif);
+shif.shift();
+console.log(shif);
+shif.unshift(171, [155,69]);
+console.log(shif);
+shif.shift();
+console.log(shif);
+shif.shift();
+console.log(shif);
+shif.shift();
+console.log(shif);
+
+// TOSTRING
+
+var to = [1,2,3].toString();
+console.log(to);
+var abc = ['a', 'b', 'c'].toString();
+console.log(abc);
+var mix = [1, [2, 'c']].toString();
+console.log(mix);
