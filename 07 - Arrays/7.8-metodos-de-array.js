@@ -51,8 +51,8 @@ console.log(i);
 i.sort(function(s,t) {
 	var a = s.toLowerCase();
 	var b = t.toLowerCase();
-	if (a < b) return -1;
-	if (a > b) return 1;
+	if (a < b) {return -1;}
+	if (a > b) {return 1;}
 	return 0;
 });
 console.log(i);
