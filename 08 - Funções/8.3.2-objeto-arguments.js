@@ -35,5 +35,27 @@ console.log(fac);
 
 //---------------------------//
 
+// Copia os length elements do array from para o array to
+// começa a copia com o elemento from_start no array from
+// e copie esse elemento em to_start no array to
+
+function arraycopy(/* array */ from, /* indice */ from_start,
+									 /* array */ to, /* indice */ to_start,
+									 /* intereger */ length)
+{
+	// o codigo fica aqui
+}
+
+// esta versao é um pouco menos eficiente, mas nao é precisa lembrar a ordem dos argumentos
+function easycopy(args) {
+	arraycopy(args.from,
+						args.from_start || 0,/* Observe o valor padrão fornecido*/
+						args.to,
+						args.to_start || 0,
+						args.length);
+}
+
+var easy = [1,2,3,4], b =[];
+easycopy({from: easy, to: b, length: 4});
 
 
