@@ -38,3 +38,31 @@ var mjName = celebrityName ("Michael");
 mjName ("Jackson"); //This celebrity is Michael Jackson
 
 console.log(mjName ("Jackson"));
+
+//- Closures tem acesso a variável das funções exteriores mesmo após o retorno da função exterior -//
+
+function celebrityID () {
+	var celebrityID = 999;
+	//Nós retornamos um objeto com algumas funções interiores
+	//Todas as funções interiores têm acesso as variáveis'da função exterior
+	return {
+		getID: function () {
+			//Esta função interior vai retornar a variável celebrityID ATUALIZADA
+			return celebrityID;
+		},
+		setID: function (theNewId) {
+			//Esta função interior vai mudar a variável da função exterior a qualquer hora
+			celebrityID = theNewId;
+		}
+	};
+}
+
+var mjID = celebrityID (); //Nesta atual conjuntura, a função exterior celebrityID já retornou
+mjID.getID(); //999
+console.log(mjID.getID());
+
+mjID.setID(567); //Muda a variável da função exterior
+console.log(mjID.setID(567));
+
+mjID.getID(); //567 - retorna o valor atualizado da variável celebrityID
+console.log(mjID.getID());
