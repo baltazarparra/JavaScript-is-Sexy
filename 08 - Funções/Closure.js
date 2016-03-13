@@ -39,7 +39,7 @@ mjName ("Jackson"); //This celebrity is Michael Jackson
 
 console.log(mjName ("Jackson"));
 
-//- Closures tem acesso a variável das funções exteriores mesmo após o retorno da função exterior -//
+//- Closures armazenam referências para as variáveis da função exterior -//
 
 function celebrityID () {
 	var celebrityID = 999;
@@ -66,3 +66,52 @@ console.log(mjID.setID(567));
 
 mjID.getID(); //567 - retorna o valor atualizado da variável celebrityID
 console.log(mjID.getID());
+
+//- Closures que deram errado -//
+
+//Este exemplo é explicado em detalhe abaixo (logo após este bloco de código)
+function celebrityIDCreator (theCelebrities) {
+	var i;
+	var uniqueID = 100;
+	for (i = 0; i < theCelebrities.length; i += 1) {
+		theCelebrities[i]["id"] = function () {
+			return uniqueID + i;
+		};
+	}
+
+	return theCelebrities;
+}
+
+var actionCelebs = [{name:"Stallone", id:0}, {name:"Cruise", id:0}, {name:"Willis", id:0}];
+
+var createIdForActionCelebs = celebrityIDCreator(actionCelebs);
+
+var stalloneID = createIdForActionCelebs[0];
+
+console.log(stalloneID.id()); //103
+
+//- Forma correta -//
+
+function celebrityIDCreator (theCelebrities) {
+	var i;
+	var uniqueID = 100;
+	for (i = 0; i < theCelebrities.length; i += 1) {
+		theCelebrities[i]["id"] = function (j) { //a variável paramétrica j é o i passado na invocação da IIFE
+			return function () {
+				return uniqueID + j;
+				//cada iteração do loop for passa no valor atual de i dentro desta IIFE e salva o valor correto no array
+			} () //Adicionando () no fim da função, nós estamos executando-a imediatamente e retornando somente o valor de uniqueID + j, ao invés de retornar uma função
+		} (i); //invocando imediatamente a função passando a variável i como um parâmetro
+	}
+	return theCelebrities;
+}
+
+var actionCelebs = [{name: "Stallone", id:0}, {name: "Cruise", id:0}, {name: "Willis", id:0}];
+
+var createIdForActionCelebs = celebrityIDCreator (actionCelebs);
+
+var stalloneID = createIdForActionCelebs [0];
+console.log(stalloneID.id); //100
+
+var cruiseID = createIdForActionCelebs [1];
+console.log(cruiseID.id); //101
